@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { Mic, MicOff, VolumeX, Loader, AlertCircle, Settings } from 'lucide-react';
+import { Mic, MicOff, VolumeX, Loader, AlertCircle, Settings, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition';
@@ -379,7 +379,20 @@ export const ConversationalAI: React.FC<ConversationalAIProps> = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative">
+      {/* Source Code Button - Top Right Corner */}
+      <div className="absolute top-4 right-4 z-10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => window.open('https://github.com/yashbhangale/Crystal-group-voice-AI-Assistant', '_blank')}
+          className="flex items-center gap-2 bg-gray-900/80 backdrop-blur-sm border-gray-600/50 text-gray-300 hover:text-white hover:bg-gray-800/80 transition-all duration-200"
+        >
+          <ExternalLink className="w-4 h-4" />
+          View Source Code
+        </Button>
+      </div>
+
       {/* Main Voice Interface */}
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
         {/* Voice Visualizer */}
